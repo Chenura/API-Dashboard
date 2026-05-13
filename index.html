@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Testing Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>API Testing Dashboard</h1>
+
+  <div class="tabs-container">
+    <div id="tabs"></div>
+    <button id="newTab">+</button>
+  </div>
+
+  <div class="request-box">
+
+    <div class="top-controls">
+
+      <select id="method">
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>DELETE</option>
+        <option>GRAPHQL</option>
+      </select>
+
+      <input type="text"
+      id="url"
+      placeholder="Enter API URL">
+
+      <button id="sendBtn">Send</button>
+      <button id="saveRequest">Save</button>
+
+    </div>
+
+    <div class="auth-section">
+
+      <h3>Authentication</h3>
+
+      <select id="authType">
+        <option value="">None</option>
+        <option value="bearer">Bearer Token</option>
+        <option value="apikey">API Key</option>
+      </select>
+
+      <input type="text"
+      id="authValue"
+      placeholder="Enter Token or API Key">
+
+    </div>
+
+    <div class="env-section">
+
+      <h3>Environment Variables</h3>
+
+      <textarea id="envVars">
+{
+  "base_url":"https://jsonplaceholder.typicode.com"
+}
+      </textarea>
+
+    </div>
+
+    <div class="headers-section">
+
+      <h3>Headers (JSON)</h3>
+
+      <textarea id="headers">
+{
+  "Content-Type":"application/json"
+}
+      </textarea>
+
+    </div>
+
+    <div class="body-section">
+
+      <h3>Request Body / GraphQL Query</h3>
+
+      <textarea id="body"></textarea>
+
+    </div>
+
+  </div>
+
+  <div class="response-box">
+
+    <div class="response-header">
+      <h2>Response</h2>
+
+      <div class="response-buttons">
+        <button id="copyBtn">Copy</button>
+        <button id="exportBtn">Export Collections</button>
+        <input type="file" id="importFile">
+      </div>
+    </div>
+
+    <p>Status: <span id="status">-</span></p>
+
+    <pre>
+<code id="response" class="json"></code>
+    </pre>
+
+  </div>
+
+  <div class="collections">
+    <h2>Saved Collections</h2>
+    <ul id="savedList"></ul>
+  </div>
+
+  <div class="history">
+    <h2>Request History</h2>
+    <ul id="historyList"></ul>
+  </div>
+
+  <div class="websocket-box">
+
+    <h2>WebSocket Testing</h2>
+
+    <input type="text"
+    id="wsUrl"
+    placeholder="wss://example.com">
+
+    <button id="connectWS">Connect</button>
+
+    <div id="wsMessages"></div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
